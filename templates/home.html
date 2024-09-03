@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CSS/style.css"/>
+    <title>Microblog</title>
+</head>
+<body>
+
+    <header class = "navbar">
+        <div class = "navbar__brand" >
+            <img src = "/static/icon.svg" class="navbar__logo" alt="Microblog Icon"/> Microblog
+        </div>
+        <ul class="navbar__navigation">
+            <li class="navbar__navigation-item"><a href="#" class="navbar__link">Recent</a></li>
+            <li class="navbar__navigation-item"><a href="#" class="navbar__link">Calendar</a></li>
+        </ul>
+    </header>
+
+
+    <main class="main"> <!--useful for setting max-width for body to that of the header or any other way if needed. Instead of div-->
+        <section>
+            <h1>Add a new Entry</h1>
+            <form action="/" method="POST" class="form">
+                <p class="form__input">
+                    <!--<label for="entry" class="form__label">Entry contents</label>-->
+                    <!-- to use a label without actually displaying the label, use arial-label="so so so..." in your <textarea> or <input>-->
+                    <!--<input type="text" name="sample" id="sample-field">-->
+                    <textarea name="content" id="entry" class="form__textarea" aria-label="Entry contents"   placeholder="Enter here"></textarea> 
+                </p>
+                <button type = "submit" class="form__submit"> Submit </button>
+                
+            </form>
+        </section>
+
+        <section>
+            <h1>Recent Posts</h1>
+            {%for entry in entries%}
+                <article class="entry">
+                    <div>
+                        <h2 class="entry__title"> {{entry[0] | truncate(30, true)}} </h2><!--we have used a pipe "|" which allows us to add a function. Here truncate to 30 char and true for "..."-->
+                        <time class="entry__date" datetime="{{entry[1]}}">⦿ {{entry[2]}}</time> <!--https://fsymbols.com/signs/bullet-point/-->
+                    </div>
+                    <p class="entry__content">
+                        {{entry[0]}}
+                    </p>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer__content">
+            <section class = "left">
+                <a class="footer__item" href="#">Made by Bolu Odunsi</a>
+                <a class="footer__item" href="#">Check out my portfolio</a>
+            </section>
+            <section class = "right">
+                <div class="footer__column">
+                    <a class="footer__item" href="#">Recent</a>
+                    <a class="footer__item" href="#">Calendar</a>
+                </div>
+                <div class="footer__column">
+                    <a class="footer__item" href="#">About</a>
+                    <a class="footer__item" href="#">How this was made</a>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+html{
+    font-family: Lato, sans-serif; /*sets font-family to Lato and if Lato not available, sets it to sans-serif*/
+}
+
+body{
+    box-sizing: border-box;
+    margin:0; /*there is always a bit of margin by default that can afftect full with containers like footers and navbars, hence remove it*/
+}
+
+*, *::after,*::before{
+    box-sizing: inherit;
+}
+
+textarea {
+    resize: none;
+}
+
+.navbar{
+    max-width: 977px;
+    max-height: 82px;
+    margin: 50px auto; /*put a margin of 50px at top an bottom, the centers the class horizontally*/
+    /*padding: 0 20px;*/
+    display: flex; /*makes the .navbar a flex container, allowing its children to be aligned using Flexbox.*/
+    flex-direction: row; /*ensures that the flex items (the elements within .navbar) are aligned horizontally from left to right.*/
+    justify-content: space-between; /* useful in a case like this with 2 elemets. put max amount of gap btwn the element in .navbar, hence allow sep of logo and link*/
+    font-size: 15px;
+}
+
+.navbar__brand{
+    display: flex;
+    align-items: center;
+}
+
+.navbar__navigation{
+    display: flex; /*note flexbox is used in arranging elements in a container <ul> <div> etc */
+    flex-direction: row;
+    list-style: none; /*removes bullet points from list element*/
+    color: #5c6b70;
+    align-items: center;
+    padding: 0;
+}
+
+.navbar__logo{
+    margin-right: 30px;
+}
+
+.navbar__navigation-item{
+    margin-left: 77.23px;
+    /*display: inline;*/ /*for if we want to target li elements to make them inline intead of using flexbox on the ul*/
+    /* inline is used in displaying elemnets in inline format. can atach to an element and make it inline*/
+}
+
+.navbar__link{
+    text-decoration: none;
+    color:inherit;
+}
+
+
+/*Main */
+
+.main{
+    max-width: 568px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /*aligns all the items to the right*/
+}
+
+.form__input{
+    width: 100%; 
+}
+
+.form__label{
+    display:block; /*lets label take its own block or line*/
+    margin-bottom: 10px;
+}
+
+.form__textarea{
+    width: inherit;
+    font-size:14px;
+    max-height: 115px;
+    padding:12px 20px; /*provieds padding within the text box*/
+    border: none;
+    background-color: #F1EDED;
+    border-radius: 4px;
+}
+
+.form__submit{
+    background-color: #76E1FC;
+    max-width: 129px;
+    max-height: 42px;
+    color:white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.form__submit:hover{
+    background-color: #18c1e1;
+
+}
+
+/*Posts section*/
+.entry{
+    margin-top: 50px;
+}
+
+.entry__title{
+    display: inline;
+    font-size: 14.64px;
+}
+
+.entry__date{
+    color: #5c6b70;
+    font-size: 14.64px;
+}
+
+.entry__content{
+    font-size: 12.69px;
+    line-height: 150%; /*helps seperate the textlines*/
+}
+
+
+/*Footer*/
+
+.footer{
+    background-color: #323f43;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 4px solid black;
+    color: white;
+    font-size: 11px;
+}
+
+.footer__content{
+    max-width: 977px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .left{
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .right{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer__column{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.footer__item{
+    margin-bottom: 5px;
+    color: inherit;/*makes href take the colour of the container it is in*/
+    text-decoration: none; /*removes lines from link*/
+}
+
+.footer__item:hover{
+    text-decoration: underline;
+}
+
+
+/*Check Section 6 of the Flask Udemy course for .99 A CSS reference for what we've used in this 
+section. It will teach you quickly about some of the components used here*/
